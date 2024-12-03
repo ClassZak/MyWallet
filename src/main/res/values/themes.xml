@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.MyWallet" parent="Base.Theme.MyWallet" />
+
+    <style name="AppTheme.NoActionBar" parent="Theme.MyWallet">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>
