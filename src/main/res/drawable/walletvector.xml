@@ -1,0 +1,12 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wallet_animation">
+
+    <scale
+        android:fromXScale="1.0"
+        android:toXScale="0.5"
+        android:fromYScale="1.0"
+        android:toYScale="0.5"/>
+
+
+
+</animation-list>
