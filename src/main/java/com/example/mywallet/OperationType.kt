@@ -1,6 +1,9 @@
 package com.example.mywallet
 
-import java.io.Serializable
+import androidx.room.*
 
-class OperationType(val name : String) : Serializable{
+@Entity(tableName = "OperationType")
+data class OperationType(
+    @PrimaryKey(autoGenerate = true) val OperationType_id:Int,
+    @ColumnInfo(name = "OperationType") var OperationType_name : String){
 }

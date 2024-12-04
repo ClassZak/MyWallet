@@ -18,4 +18,6 @@
     <string name="versionLabel">Версия:</string>
     <string name="authorNickname">ClassZak</string>
     <string name="authorNicknameLabel">Никнейм автора:</string>
+    <string name="changeToLightTheme">Сменить тему на светлую</string>
+    <string name="changeToDarkTheme">Сменить тему на тёмную</string>
 </resources>

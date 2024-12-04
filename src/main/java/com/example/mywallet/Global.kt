@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.annotation.UiThread
-import androidx.core.R
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import java.io.File
