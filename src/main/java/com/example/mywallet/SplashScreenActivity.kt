@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.WorkDuration
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -28,13 +29,13 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Thread(Runnable{
             Thread.sleep(1000)
-            scaleView(findViewById(R.id.walletImage),1.0f,0.5f,1.0f,0.5f)
-            Thread.sleep(1000)
-            scaleView(findViewById(R.id.walletImage),0.5f,1.0f,0.5f,1.0f)
-            Thread.sleep(1000)
-            scaleView(findViewById(R.id.walletImage),1.0f,0.75f,1.0f,0.75f)
-            Thread.sleep(1000)
-            scaleView(findViewById(R.id.walletImage),0.75f,1.0f,0.75f,1.0f)
+            scaleView(findViewById(R.id.walletImage),1.0f,0.5f,1.0f,0.5f,750)
+            Thread.sleep(750)
+            scaleView(findViewById(R.id.walletImage),0.5f,1.0f,0.5f,1.0f,750)
+            Thread.sleep(750)
+            scaleView(findViewById(R.id.walletImage),1.0f,0.75f,1.0f,0.75f,750)
+            Thread.sleep(750)
+            scaleView(findViewById(R.id.walletImage),0.75f,1.0f,0.75f,1.0f,750)
 
 
             Global.globalInstance.global.loadData(this)
@@ -56,10 +57,11 @@ class SplashScreenActivity : AppCompatActivity() {
     fun goToMainActivity(){
         Thread.sleep(2000)
         startActivity(Intent(this,MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+        finish()
     }
 
 
-    fun scaleView(v: View, startXScale: Float, endXScale: Float,startYScale: Float, endYScale: Float) {
+    fun scaleView(v: View, startXScale: Float, endXScale: Float,startYScale: Float, endYScale: Float, duration: Long=1000) {
         val anim: Animation = ScaleAnimation(
             startXScale, endXScale,  // Start and end values for the X axis scaling
             startYScale, endYScale,  // Start and end values for the Y axis scaling
@@ -67,7 +69,7 @@ class SplashScreenActivity : AppCompatActivity() {
             Animation.RELATIVE_TO_SELF, 0.5f
         ) // Pivot point of Y scaling
         anim.fillAfter = false // Needed to keep the result of the animation
-        anim.duration = 1000
+        anim.duration = duration
         v.startAnimation(anim)
     }
 }

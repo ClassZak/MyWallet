@@ -4,4 +4,18 @@
     <string name="about">О программе</string>
     <string name="changeTheme">Сменить тему</string>
     <string name="helloMessage">Здравствуй,\u0020</string>
+    <string name="changeYouName">Имя пользователя</string>
+    <string name="userName">Введите новое имя пользователя</string>
+    <string name="myWalletTitle">Мой кошелёк</string>
+    <string name="settingsTitle">Настройки</string>
+    <string name="aboutTitle">О программе</string>
+    <string name="OK">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="back">Назад</string>
+    <string name="author">Голуб Захар</string>
+    <string name="authorLabel">Автор:</string>
+    <string name="version">1.0</string>
+    <string name="versionLabel">Версия:</string>
+    <string name="authorNickname">ClassZak</string>
+    <string name="authorNicknameLabel">Никнейм автора:</string>
 </resources>

@@ -7,9 +7,13 @@
         android:icon="@drawable/ic_settings"
         app:showAsAction="ifRoom">
         <menu>
-            <item android:title="@string/settings"/>
-            <item android:title="@string/about"/>
-            <item android:title="@string/changeTheme"/>
+            <item
+                android:title="@string/settings"
+                android:id="@+id/settingsMenuItem"/>
+            <item android:title="@string/about"
+                android:id="@+id/aboutMenuItem"/>
+            <item android:title="@string/changeTheme"
+                android:id="@+id/changeThemeMenuItem"/>
         </menu>
     </item>
 </menu>

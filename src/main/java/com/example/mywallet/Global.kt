@@ -33,6 +33,19 @@ class Global {
         } else
             Global.globalInstance.global.UserName = file.readText()
     }
+    fun saveSettings(activity:Activity):Unit{
+        val settingsFileName="Settings.txt"
+        val file = File(activity.getExternalFilesDir(null),settingsFileName)
+
+        try {
+            file.writeText(UserName)
+        } catch (e: Exception) {
+            activity.runOnUiThread {
+                Toast.makeText(activity, e.toString(), Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
 
     fun loadData(activity :Activity){
 
