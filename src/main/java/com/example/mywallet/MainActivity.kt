@@ -75,16 +75,13 @@ class MainActivity : AppCompatActivity() {
 
         title = resources.getString(R.string.myWalletTitle)
 
-        findViewById<TextView>(R.id.text2).setText(Global.globalInstance.global.UserName)
-
-        //database = WalletDatabase.getDatabase(this)
-        tvOutput = findViewById(R.id.text2)
-        findViewById<Button>(R.id.buttonleft).setOnClickListener {
-            //createDatabaseData()
-        }
-        findViewById<Button>(R.id.buttonRight).setOnClickListener {
-            //readDatabaseData()
-        }
+        Thread({
+            Global.globalInstance.global.loadPreviousMonthBalanceByFoundedMonthBalance(this)
+            runOnUiThread{
+                findViewById<TextView>(R.id.monthBalance).text=Global.globalInstance.global.monthBalance.toString()
+                findViewById<TextView>(R.id.prevMonthBalance).text=Global.globalInstance.global.previousBonthBalance.toString()
+            }
+        }).start()
     }
 
     fun isDarkMode(context: Context =this): Boolean {
@@ -96,65 +93,4 @@ class MainActivity : AppCompatActivity() {
         else
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
     }
-
-
-
-
-
-
-    //private lateinit var database: WalletDatabase
-    private lateinit var tvOutput: TextView
-
-    /*private fun createDatabaseData() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val dao = database.walletDao()
-
-            // Удаление данных перед добавлением (опционально)
-            dao.insertBankBalanceType(BankBalanceType(name = "Сберегательный"))
-            dao.insertBankBalanceType(BankBalanceType(name = "Текущий"))
-
-            val balanceId = dao.insertBankBalance(
-                BankBalance(
-                    name = "Мой счёт",
-                    description = "Основной счёт",
-                    balance = 1000.0,
-                    startBalance = 1000.0,
-                    typeId = 1
-                )
-            )
-
-            dao.insertOperationType(OperationType(name = "Доход"))
-            dao.insertOperationType(OperationType(name = "Расход"))
-
-            dao.insertOperation(
-                Operation(
-                    description = "Зарплата",
-                    amount = 5000.0,
-                    date = "2024-12-01",
-                    bankBalanceId = balanceId.toInt(),
-                    typeId = 1
-                )
-            )
-
-            withContext(Dispatchers.Main) {
-                tvOutput.text = "Данные успешно добавлены!"
-            }
-        }
-    }
-
-    private fun readDatabaseData() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val dao = database.walletDao()
-            val balances = dao.getAllBankBalances()
-
-            val output = StringBuilder("Счета:\n")
-            for (balance in balances) {
-                output.append("ID: ${balance.id}, Имя: ${balance.name}, Баланс: ${balance.balance}\n")
-            }
-
-            withContext(Dispatchers.Main) {
-                tvOutput.text = output.toString()
-            }
-        }
-    }*/
 }

@@ -8,30 +8,68 @@ import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+
 @Dao
-interface BalanceTypeDao {
+interface BankBalanceDao{
     @Insert
-    suspend fun insert(balanceType: BankBalanceType)
-
-    @Query("SELECT * FROM BankBalanceType")
-    suspend fun getAllBalanceType(): List<BankBalanceType>
-}
-
-@Dao
-interface BankBalanceDao {
-    @Insert(entity = BankBalance::class)
-    fun insertNewBankBalance(bankBalance: BankBalance)
+    fun insert(bankBalance: BankBalance)
 
     @Query("SELECT * FROM BankBalance")
-    suspend fun getAllBankBalance(): List<BankBalance>
+    fun getAll(): List<BankBalance>
+
+    @Query("DELETE FROM BankBalance")
+    fun deleteAll(): Unit
+}
+@Dao
+interface BankBalanceTypeDao {
+    @Insert
+    fun insert(bankBalanceType: BankBalanceType)
+
+    @Query("SELECT * FROM BankBalanceType")
+    fun getAll(): List<BankBalanceType>
+
+    @Query("DELETE FROM BankBalanceType")
+    fun deleteAll():Unit
 }
 
 
 
-@Database(entities = [BankBalanceType::class, BankBalance::class], version = 1)
+@Dao
+interface OperationDao{
+    @Insert
+    fun inert(operation: Operation)
+
+    @Query("SELECT * FROM Operation")
+    fun getAll():List<Operation>
+
+    @Query("DELETE FROM Operation")
+    fun deleteAll():Unit
+
+    @Query("SELECT * FROM Operation WHERE Operation_date >= :startDate AND Operation_date < :endDate")
+    fun getOperationsOfPeriod(startDate:String,endDate:String) : List<Operation>
+}
+@Dao
+interface OperationTypeDao {
+    @Insert
+    fun insert(bankBalanceType: OperationType)
+
+    @Query("SELECT * FROM OperationType")
+    fun getAll(): List<OperationType>
+
+    @Query("DELETE FROM OperationType")
+    fun deleteAll():Unit
+}
+
+
+
+
+
+@Database(entities = [BankBalanceType::class, BankBalance::class, OperationType::class,Operation::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun balanceTypeDao(): BalanceTypeDao
+    abstract fun bankBalanceTypeDao(): BankBalanceTypeDao
     abstract fun bankBalanceDao(): BankBalanceDao
+    abstract fun operationTypeDao(): OperationTypeDao
+    abstract fun operationDao(): OperationDao
 
     companion object {
         @Volatile

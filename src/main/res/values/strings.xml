@@ -20,4 +20,11 @@
     <string name="authorNicknameLabel">Никнейм автора:</string>
     <string name="changeToLightTheme">Сменить тему на светлую</string>
     <string name="changeToDarkTheme">Сменить тему на тёмную</string>
+    <string name="monthBalanceLabel">Остаток на текущий месяц: </string>
+    <string name="previousMonthBalanceLabel">Остаток на предыдущий месяц: </string>
+    <string name="history">История операций</string>
+    <string name="balancesTypes">Типы счетов</string>
+    <string name="operationTypes">Типы операций</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
