@@ -86,6 +86,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.operationTypeButton).setOnClickListener{
             startActivity(Intent(this,OperationTypeActivity::class.java))
         }
+        findViewById<Button>(R.id.balanceTypeButton).setOnClickListener{
+            startActivity(Intent(this,BankBalanceTypeActivity::class.java))
+        }
     }
 
     fun isDarkMode(context: Context =this): Boolean {

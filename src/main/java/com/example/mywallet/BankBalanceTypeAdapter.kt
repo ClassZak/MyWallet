@@ -11,9 +11,9 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 
 
-class OperationTypeAdapter(
+class BankBalanceTypeAdapter(
 private val context: Activity,
-private var operationTypes: ArrayList<OperationType>,
+private var BankBalanceTypes: ArrayList<BankBalanceType>,
 private val selectionChangeListener: OnSelectionChangeListener, // Добавьте этот параметр
 private val database: AppDatabase
 ) : BaseAdapter() {
@@ -21,22 +21,22 @@ private val database: AppDatabase
     var isSelectionMode = false
 
     override fun getCount(): Int {
-        return operationTypes.size
+        return BankBalanceTypes.size
     }
 
-    override fun getItem(position: Int): OperationType {
-        return operationTypes[position]
+    override fun getItem(position: Int): BankBalanceType {
+        return BankBalanceTypes[position]
     }
 
     override fun getItemId(position: Int): Long {
-        return operationTypes[position].id.toLong()
+        return BankBalanceTypes[position].id.toLong()
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = convertView ?: LayoutInflater.from(context).inflate(R.layout.operation_type_list_item_layout, parent, false)
+        val view: View = convertView ?: LayoutInflater.from(context).inflate(R.layout.bank_balance_type_list_item_layout, parent, false)
 
-        val operationTypeNameTextView = view.findViewById<TextView>(R.id.operation_type_title_textview)
-        operationTypeNameTextView.text = getItem(position).OperationType_name
+        val BankBalanceTypeNameTextView = view.findViewById<TextView>(R.id.bankbalance_type_title_textview)
+        BankBalanceTypeNameTextView.text = getItem(position).BankBalanceType_name
 
         // Выделение элемента (можно добавить визуальные изменения)
         if (selectedItems.contains(position)) {
@@ -49,11 +49,11 @@ private val database: AppDatabase
     }
 
     fun removeAt(position: Int){
-        operationTypes.removeAt(position)
+        BankBalanceTypes.removeAt(position)
     }
 
-    fun updateData(newOperationTypes: ArrayList<OperationType>) {
-        operationTypes = newOperationTypes
+    fun updateData(newBankBalanceTypes: ArrayList<BankBalanceType>) {
+        BankBalanceTypes = newBankBalanceTypes
         notifyDataSetChanged()
     }
 
@@ -75,7 +75,7 @@ private val database: AppDatabase
 
         Thread{
             for(el in selectedItems)
-                database.operationTypeDao().delete(operationTypes[el])
+                database.bankBalanceTypeDao().delete(BankBalanceTypes[el])
             for(el in selectedItems)
                 removeAt(el)
 

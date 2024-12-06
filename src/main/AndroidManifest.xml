@@ -24,7 +24,10 @@
             android:name=".OperationTypeActivity"
             android:exported="false" />
         <activity
-            android:name=".BankBalalnceTypeActivity"
+            android:name=".BankBalanceTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddBankBalanceTypeActivity"
             android:exported="false" />
         <activity
             android:name=".AddOperationActivity"
