@@ -2,33 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity"
+    tools:context=".AddOperationTypeActivity"
     android:layout_margin="32dp">
 
     <TextView
-        android:id="@+id/userNameTextView"
+        android:id="@+id/OperationTypeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/userName"
+        android:text="Введите название для нового типа операции"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/userNameEditText"
+        android:id="@+id/OperationTypeEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:focusedByDefault="true"
         android:inputType="text"
-        android:hint="@string/changeYouName"
+        android:hint="Новый тип операции"
         android:maxLength="255"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/userNameTextView"
-        app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />
+        app:layout_constraintStart_toStartOf="@+id/OperationTypeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/OperationTypeTextView" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,10 +47,11 @@
 
         <Button
             android:text="@string/cancel"
-            android:id="@+id/CancelButton"
             android:layout_marginLeft="16dp"
+            android:id="@+id/CancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

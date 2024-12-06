@@ -19,6 +19,8 @@ class Global {
 
     val dateFormat = SimpleDateFormat("yyyy.MM.dd.HH:mm:ss", Locale.getDefault())
 
+    lateinit var operationTypes:List<OperationType>
+
     object globalInstance {
         var global:Global = Global()
     }

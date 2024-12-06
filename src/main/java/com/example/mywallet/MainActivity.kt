@@ -82,6 +82,10 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.prevMonthBalance).text=Global.globalInstance.global.previousBonthBalance.toString()
             }
         }).start()
+
+        findViewById<Button>(R.id.operationTypeButton).setOnClickListener{
+            startActivity(Intent(this,OperationTypeActivity::class.java))
+        }
     }
 
     fun isDarkMode(context: Context =this): Boolean {

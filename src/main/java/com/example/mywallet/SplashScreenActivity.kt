@@ -60,6 +60,18 @@ class SplashScreenActivity : AppCompatActivity() {
         finish()
     }
 
+    /*override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash)
+
+        // Задержка на 2 секунды перед переходом к основному экрану
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // Закрываем SplashActivity
+        }, 2000) // 2000 миллисекунд = 2 секунды
+    }*/
+
 
     fun scaleView(v: View, startXScale: Float, endXScale: Float,startYScale: Float, endYScale: Float, duration: Long=1000) {
         val anim: Animation = ScaleAnimation(

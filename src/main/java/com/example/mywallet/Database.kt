@@ -3,6 +3,7 @@ package com.example.mywallet
 import android.content.Context
 import androidx.room.Dao
 import androidx.room.Database
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Room
@@ -58,6 +59,9 @@ interface OperationTypeDao {
 
     @Query("DELETE FROM OperationType")
     fun deleteAll():Unit
+
+    @Delete
+    fun delete(operationType: OperationType)
 }
 
 
