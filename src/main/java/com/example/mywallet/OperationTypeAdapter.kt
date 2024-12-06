@@ -14,7 +14,7 @@ import android.widget.TextView
 class OperationTypeAdapter(
 private val context: Activity,
 private var operationTypes: ArrayList<OperationType>,
-private val selectionChangeListener: OnSelectionChangeListener, // Добавьте этот параметр
+private val selectionChangeListener: OnSelectionChangeListener,
 private val database: AppDatabase
 ) : BaseAdapter() {
     private val selectedItems = mutableSetOf<Int>()

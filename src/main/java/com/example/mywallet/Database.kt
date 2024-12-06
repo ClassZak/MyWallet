@@ -20,6 +20,9 @@ interface BankBalanceDao{
 
     @Query("DELETE FROM BankBalance")
     fun deleteAll(): Unit
+
+    @Delete
+    fun delete(bankBalance: BankBalance)
 }
 @Dao
 interface BankBalanceTypeDao {
@@ -34,6 +37,9 @@ interface BankBalanceTypeDao {
 
     @Delete
     fun delete(bankBalanceType: BankBalanceType)
+
+    @Query("SELECT * FROM BankBalanceType WHERE id = :id")
+    fun getById(id:Long):BankBalanceType
 }
 
 

@@ -18,6 +18,9 @@
         android:theme="@style/Theme.MyWallet"
         tools:targetApi="31">
         <activity
+            android:name=".BankBalanceActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddOperationTypeActivity"
             android:exported="false" />
         <activity

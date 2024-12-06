@@ -1,6 +1,7 @@
 package com.example.mywallet
 
 import androidx.room.*
+import java.io.Serializable
 
 
 @Entity(
@@ -26,5 +27,5 @@ data class Operation(
     @ColumnInfo(name = "Operation_description") var Operation_description: String,
     @ColumnInfo(name = "Operation_amount") var Operation_amount: Double,
     @ColumnInfo(name = "Operation_date") var Operation_date: String,
-    @ColumnInfo(index = true) var BankBalance_id : Int){
+    @ColumnInfo(index = true) var BankBalance_id : Int):Serializable{
 }

@@ -24,7 +24,7 @@
         android:layout_marginEnd="32dp"
         android:focusedByDefault="true"
         android:inputType="text"
-        android:hint="Новый тип счёта"
+        android:hint="Новый тип операции"
         android:maxLength="255"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"

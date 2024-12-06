@@ -1,6 +1,7 @@
 package com.example.mywallet
 
 import androidx.room.*
+import java.io.Serializable
 
 @Entity(
     tableName = "BankBalance",
@@ -19,5 +20,5 @@ data class BankBalance(
     @ColumnInfo(name = "BankBalance_description") var BankBalance_descption:String,
     @ColumnInfo(name = "BankBalance_balance") var BankBalance_balance:Double,
     @ColumnInfo(index=true) var BankBalanceType_id: Int,
-    @ColumnInfo(name = "BankBalance_start_balance") var BankBalance_start_balance:Double){
+    @ColumnInfo(name = "BankBalance_start_balance") var BankBalance_start_balance:Double):Serializable{
 }

@@ -14,7 +14,7 @@ import android.widget.TextView
 class BankBalanceTypeAdapter(
 private val context: Activity,
 private var BankBalanceTypes: ArrayList<BankBalanceType>,
-private val selectionChangeListener: OnSelectionChangeListener, // Добавьте этот параметр
+private val selectionChangeListener: OnSelectionChangeListener,
 private val database: AppDatabase
 ) : BaseAdapter() {
     private val selectedItems = mutableSetOf<Int>()
@@ -76,9 +76,6 @@ private val database: AppDatabase
         Thread{
             for(el in selectedItems)
                 database.bankBalanceTypeDao().delete(BankBalanceTypes[el])
-            for(el in selectedItems)
-                removeAt(el)
-
 
             selectedItems.clear()
             context.runOnUiThread {
