@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_weight="5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/BankBalanceNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/BankBalanceDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/BankBalanceNameTextView"
+            android:layout_marginTop="8dp"
+            android:text="description"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/BankBalanceNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/BankBalanceNameTextView" />
+
+        <TextView
+            android:id="@+id/BankBalanceBalanceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BankBalanceDescriptionTextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="0.0"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/BankBalanceDescriptionTextView"
+            app:layout_constraintTop_toBottomOf="@+id/BankBalanceDescriptionTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_weight="2"
+        android:id="@+id/BankBalanceBankBalanceTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BankBalanceDescriptionTextView"
+        android:text="credit"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BankBalanceDescriptionTextView" />
+</LinearLayout>
