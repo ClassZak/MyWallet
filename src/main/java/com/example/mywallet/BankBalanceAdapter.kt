@@ -83,6 +83,8 @@ class BankBalanceAdapter (
         Thread{
             for (el in selectedItems)
                 database.bankBalanceDao().delete(BankBalances[el])
+            for(el in selectedItems)
+                BankBalances.removeAt(el)
 
             selectedItems.clear()
             context.runOnUiThread {

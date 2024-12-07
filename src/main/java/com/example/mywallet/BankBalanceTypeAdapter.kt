@@ -76,7 +76,8 @@ private val database: AppDatabase
         Thread{
             for(el in selectedItems)
                 database.bankBalanceTypeDao().delete(BankBalanceTypes[el])
-
+            for(el in selectedItems)
+                BankBalanceTypes.removeAt(el)
             selectedItems.clear()
             context.runOnUiThread {
                 notifyDataSetChanged()
