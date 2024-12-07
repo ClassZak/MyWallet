@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout android:layout_weight="5"
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_weight="4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
@@ -40,14 +40,26 @@
             app:layout_constraintStart_toStartOf="@+id/OperationDescriptionTextView"
             app:layout_constraintTop_toBottomOf="@+id/OperationDescriptionTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:layout_weight="2"
-        android:id="@+id/OperationOperationTypeTextView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/OperationDescriptionTextView"
-        android:text="transfer"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/OperationDescriptionTextView" />
+        android:orientation="vertical"
+        android:layout_weight="3">
+        <TextView
+            android:id="@+id/OperationOperationTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="transfer"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/OperationDescriptionTextView" />
+        <TextView
+            android:id="@+id/OperationBankBalanceTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="debet"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/OperationDescriptionTextView" />
+    </LinearLayout>
 </LinearLayout>

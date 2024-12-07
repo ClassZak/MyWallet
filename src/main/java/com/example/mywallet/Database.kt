@@ -23,6 +23,9 @@ interface BankBalanceDao{
 
     @Delete
     fun delete(bankBalance: BankBalance)
+
+    @Query("SELECT * FROM BankBalance WHERE id = :id")
+    fun getById(id:Long):BankBalance
 }
 @Dao
 interface BankBalanceTypeDao {
@@ -47,7 +50,10 @@ interface BankBalanceTypeDao {
 @Dao
 interface OperationDao{
     @Insert
-    fun inert(operation: Operation)
+    fun insert(operation: Operation)
+
+    @Query("SELECT * FROM Operation WHERE id = :id")
+    fun getById(id:Long):Operation
 
     @Query("SELECT * FROM Operation")
     fun getAll():List<Operation>
@@ -57,6 +63,9 @@ interface OperationDao{
 
     @Query("SELECT * FROM Operation WHERE Operation_date >= :startDate AND Operation_date < :endDate")
     fun getOperationsOfPeriod(startDate:String,endDate:String) : List<Operation>
+
+    @Delete
+    fun delete(operation: Operation)
 }
 @Dao
 interface OperationTypeDao {
@@ -71,6 +80,9 @@ interface OperationTypeDao {
 
     @Delete
     fun delete(operationType: OperationType)
+
+    @Query("SELECT * FROM OperationType WHERE id = :id")
+    fun getById(id:Long):OperationType
 }
 
 

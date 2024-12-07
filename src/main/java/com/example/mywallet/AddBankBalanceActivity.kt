@@ -27,7 +27,7 @@ class AddBankBalanceActivity : AppCompatActivity() {
             insets
         }
 
-        title="Новый счёт"
+
 
         Thread{
             bankBalanceTypes=database.bankBalanceTypeDao().getAll()
@@ -35,7 +35,7 @@ class AddBankBalanceActivity : AppCompatActivity() {
                 loadBalanceTypeList()
             }
         }.start()
-
+        title="Новый счёт"
         findViewById<Button>(R.id.OKButton).setOnClickListener{
             try {
                 val val1=findViewById<EditText>(R.id.AddBankBalanceNameEditText).text.toString()
