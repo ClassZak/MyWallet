@@ -23,8 +23,10 @@ class OperationTypeActivity() : AppCompatActivity(), OnSelectionChangeListener {
     val addNewOperationTypeActivityLauncher: ActivityResultLauncher<Intent>? = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()) {
             result->
-        if(result.resultCode== RESULT_OK)
+        if(result.resultCode== RESULT_OK){
             addOperationType(result.data?.getSerializableExtra("newOperationType")!! as OperationType)
+            Global.globalInstance.global.activity?.updateBalance()
+        }
     }
 
 
@@ -80,6 +82,7 @@ class OperationTypeActivity() : AppCompatActivity(), OnSelectionChangeListener {
             // Логика удаления выбранных элементов
             adapter.clearSelection() // Очистка выбора после удаления
             updateButtonsVisibility() // Обновление видимости кнопок
+            Global.globalInstance.global.activity?.updateBalance()
         }
     }
 

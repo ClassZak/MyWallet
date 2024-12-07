@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.media.MediaScannerConnection
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -74,14 +75,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         title = resources.getString(R.string.myWalletTitle)
+        Global.globalInstance.global.activity=this
 
-        Thread({
-            Global.globalInstance.global.loadPreviousMonthBalanceByFoundedMonthBalance(this)
-            runOnUiThread{
-                findViewById<TextView>(R.id.monthBalance).text=Global.globalInstance.global.monthBalance.toString()
-                findViewById<TextView>(R.id.prevMonthBalance).text=Global.globalInstance.global.previousBonthBalance.toString()
-            }
-        }).start()
+        updateBalance()
 
         findViewById<Button>(R.id.operationTypeButton).setOnClickListener{
             startActivity(Intent(this,OperationTypeActivity::class.java))
@@ -95,6 +91,16 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.historyButton).setOnClickListener{
             startActivity(Intent(this,OperationActivity::class.java))
         }
+    }
+
+    fun updateBalance(){
+        Thread({
+            Global.globalInstance.global.loadPreviousMonthBalanceByFoundedMonthBalance(this)
+            runOnUiThread{
+                findViewById<TextView>(R.id.monthBalance).text=Global.globalInstance.global.monthBalance.toString()
+                findViewById<TextView>(R.id.prevMonthBalance).text=Global.globalInstance.global.previousBonthBalance.toString()
+            }
+        }).start()
     }
 
     fun isDarkMode(context: Context =this): Boolean {

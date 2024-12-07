@@ -48,7 +48,7 @@ class OperationAdapter (
 
         Thread{
             val typename:String=database.operationTypeDao().getById(OperationRef.OperationType_id.toLong()).OperationType_name
-            val bankname:String=database.bankBalanceDao().getById(OperationRef.OperationType_id.toLong()).BankBalance_name
+            val bankname:String=database.bankBalanceDao().getById(OperationRef.BankBalance_id.toLong()).BankBalance_name
             context.runOnUiThread {
                 view.findViewById<TextView>(R.id.OperationOperationTypeTextView).text=typename
                 view.findViewById<TextView>(R.id.OperationBankBalanceTypeTextView).text=bankname

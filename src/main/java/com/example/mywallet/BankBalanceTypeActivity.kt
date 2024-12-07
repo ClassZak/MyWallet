@@ -23,8 +23,10 @@ class BankBalanceTypeActivity() : AppCompatActivity(), OnSelectionChangeListener
     val addNewBankBalanceTypeActivityLauncher: ActivityResultLauncher<Intent>? = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()) {
             result->
-        if(result.resultCode== RESULT_OK)
+        if(result.resultCode== RESULT_OK){
             addBankBalanceType(result.data?.getSerializableExtra("newBankBalanceType")!! as BankBalanceType)
+            Global.globalInstance.global.activity?.updateBalance()
+        }
     }
 
 
@@ -80,6 +82,7 @@ class BankBalanceTypeActivity() : AppCompatActivity(), OnSelectionChangeListener
             // Логика удаления выбранных элементов
             adapter.clearSelection() // Очистка выбора после удаления
             updateButtonsVisibility() // Обновление видимости кнопок
+            Global.globalInstance.global.activity?.updateBalance()
         }
     }
 

@@ -28,6 +28,7 @@ class OperationActivity : AppCompatActivity(),OnSelectionChangeListener {
         {
             val operation=result.data?.getSerializableExtra("newOperation")!! as Operation
             addOperation(operation)
+            Global.globalInstance.global.activity?.updateBalance()
         }
 
     }
@@ -81,6 +82,7 @@ class OperationActivity : AppCompatActivity(),OnSelectionChangeListener {
             // Логика удаления выбранных элементов
             adapter.clearSelection() // Очистка выбора после удаления
             updateButtonsVisibility() // Обновление видимости кнопок
+            Global.globalInstance.global.activity?.updateBalance()
         }
     }
 

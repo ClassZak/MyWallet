@@ -25,6 +25,8 @@ class Global {
         var global:Global = Global()
     }
 
+    var activity : MainActivity? =null
+
 
     fun loadSettings(activity:Activity):Unit{
         val settingsFileName="Settings.txt"
@@ -58,10 +60,14 @@ class Global {
     fun loadMonthBalance(activity :Activity){
         val databaseRef=AppDatabase.getDatabase(activity)
         val balancesList=databaseRef.bankBalanceDao().getAll()
+        val operationsList=databaseRef.operationDao().getAll()
 
         monthBalance=0.0
         for (el in balancesList)
             monthBalance+=el.BankBalance_balance
+
+        for(el in operationsList)
+            monthBalance+=el.Operation_amount
     }
     fun loadPreviousMonthBalanceByFoundedMonthBalance(activity :Activity){
         val databaseRef=AppDatabase.getDatabase(activity)

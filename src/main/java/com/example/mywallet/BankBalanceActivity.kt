@@ -1,5 +1,6 @@
 package com.example.mywallet
 
+import android.app.Activity
 import android.content.ClipDescription
 import android.content.Intent
 import android.os.Bundle
@@ -25,8 +26,10 @@ class BankBalanceActivity : AppCompatActivity(),OnSelectionChangeListener {
     val addNewBankBalanceActivityLauncher: ActivityResultLauncher<Intent>? = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()) {
             result->
-        if(result.resultCode== RESULT_OK)
+        if(result.resultCode== RESULT_OK) {
             addBankBalance(result.data?.getSerializableExtra("newBankBalance")!! as BankBalance)
+            Global.globalInstance.global.activity?.updateBalance()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,6 +81,8 @@ class BankBalanceActivity : AppCompatActivity(),OnSelectionChangeListener {
             // Логика удаления выбранных элементов
             adapter.clearSelection() // Очистка выбора после удаления
             updateButtonsVisibility() // Обновление видимости кнопок
+            Thread{
+            Global.globalInstance.global.loadMonthBalanceAndPreviousMonthBalance(Global.globalInstance.global.activity as Activity)}
         }
     }
 
@@ -111,6 +116,7 @@ class BankBalanceActivity : AppCompatActivity(),OnSelectionChangeListener {
         Thread {
             BankBalanceDao.insert(BankBalance)
             loadBankBalances() // Обновляем список после добавления
+            Global.globalInstance.global.loadMonthBalanceAndPreviousMonthBalance(Global.globalInstance.global.activity as Activity)
         }.start()
     }
 

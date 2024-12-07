@@ -28,6 +28,8 @@ class SplashScreenActivity : AppCompatActivity() {
         }
 
         Thread(Runnable{
+            Global.globalInstance.global.loadMonthBalanceAndPreviousMonthBalance(this)
+
             Thread.sleep(1000)
             scaleView(findViewById(R.id.walletImage),1.0f,0.5f,1.0f,0.5f,750)
             Thread.sleep(750)
