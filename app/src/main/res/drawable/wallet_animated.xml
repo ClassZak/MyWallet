@@ -1,0 +1,10 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wallet_animation" android:drawable="@drawable/wallet">
+
+    <target
+        android:name="wallet"
+        android:animation="@animator/wallet_scale_animation" />
+
+
+
+</animated-vector>

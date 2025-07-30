@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddBankBalanceActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/AddBankBalanceNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Название счёта"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/AddBankBalanceNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:focusedByDefault="true"
+        android:hint="Название"
+        android:inputType="text"
+        android:maxLength="255"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddBankBalanceNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddBankBalanceNameTextView" />
+
+
+    <TextView
+        android:id="@+id/AddBankBalanceDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Описание счёта"
+        app:layout_constraintStart_toStartOf="@+id/AddBankBalanceNameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/AddBankBalanceNameEditText" />
+
+    <EditText
+        android:id="@+id/AddBankBalanceDescriptionEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:focusedByDefault="true"
+        android:hint="Описание"
+        android:inputType="text"
+        android:maxLength="255"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddBankBalanceDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddBankBalanceDescriptionTextView" />
+
+    <TextView
+        android:id="@+id/AddBankBalanceBalanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Начальная сумма"
+        app:layout_constraintStart_toStartOf="@+id/AddBankBalanceDescriptionEditText"
+        app:layout_constraintTop_toBottomOf="@+id/AddBankBalanceDescriptionEditText" />
+    <EditText
+        android:id="@+id/AddBankBalanceBalanceEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:focusedByDefault="true"
+        android:hint="Сумма"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddBankBalanceBalanceTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddBankBalanceBalanceTextView" />
+
+    <TextView
+        android:id="@+id/AddBankBalanceBalanceTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Тип счёта"
+        app:layout_constraintStart_toStartOf="@+id/AddBankBalanceBalanceEditText"
+        app:layout_constraintTop_toBottomOf="@+id/AddBankBalanceBalanceEditText" />
+
+    <Spinner
+        android:id="@+id/AddBankBalanceSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddBankBalanceBalanceTypeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddBankBalanceBalanceTypeTextView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:text="@string/OK"
+            android:id="@+id/OKButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="@string/cancel"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/CancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

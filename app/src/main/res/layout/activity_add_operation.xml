@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddOperationActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/AddOperationAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сумма операции"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/AddOperationAmountEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:focusedByDefault="true"
+        android:hint="Сумма"
+        android:inputType="numberDecimal|numberSigned"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationAmountTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationAmountTextView" />
+
+
+    <TextView
+        android:id="@+id/AddOperationDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Описание операции"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationAmountEditText"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationAmountEditText" />
+
+    <EditText
+        android:id="@+id/AddOperationDescriptionEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:focusedByDefault="true"
+        android:hint="Описание"
+        android:inputType="text"
+        android:maxLength="255"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationDescriptionTextView" />
+
+
+    <LinearLayout
+        android:id="@+id/dateTimeLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationDescriptionEditText"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationDescriptionEditText">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/AddOperationDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Дата операции"
+                />
+            <Button
+                android:text="Выбрать дату"
+                android:id="@+id/AddOperationDateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:focusedByDefault="true"
+                android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/AddOperationTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Время операции"
+                />
+            <Button
+                android:text="Выбрать время"
+                android:id="@+id/AddOperationTimeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:focusedByDefault="true"
+                android:maxLines="1" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/AddOperationResultTimeDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Выбранное время:"
+        app:layout_constraintStart_toStartOf="@+id/dateTimeLinearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/dateTimeLinearLayout" />
+
+    <TextView
+        android:id="@+id/AddOperationOperationTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Тип операции"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationResultTimeDateTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationResultTimeDateTextView" />
+
+    <Spinner
+        android:id="@+id/AddOperationOperationTypeSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationOperationTypeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationOperationTypeTextView" />
+
+    <TextView
+        android:id="@+id/AddOperationBankBalanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Счёт операции операции"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationOperationTypeSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationOperationTypeSpinner" />
+
+    <Spinner
+        android:id="@+id/AddOperationBankBalanceSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AddOperationBankBalanceTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AddOperationBankBalanceTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:text="@string/OK"
+            android:id="@+id/OKButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="@string/cancel"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/CancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
